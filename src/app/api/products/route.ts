@@ -2,7 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   // Ahora consultamos directamente la tabla "products"
   const { data: products, error } = await supabase.from("products").select();
